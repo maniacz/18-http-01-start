@@ -11,7 +11,9 @@ export class AppComponent implements OnInit {
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fetchPost();
+  }
 
   onCreatePost(postData: { title: string; content: string }) {
     // Send Http request
@@ -25,9 +27,17 @@ export class AppComponent implements OnInit {
 
   onFetchPosts() {
     // Send Http request
+    this.fetchPost()
   }
 
   onClearPosts() {
     // Send Http request
+  }
+
+  private fetchPost() {
+    this.http.get('https://ng-complete-guide-b62e2-default-rtdb.europe-west1.firebasedatabase.app/posts.json')
+      .subscribe(posts => {
+        console.log(posts);
+      });
   }
 }
