@@ -1,5 +1,5 @@
 export interface Post {
     title: string;
-    contente: string;
+    content: string;
     id?: string;
 }
