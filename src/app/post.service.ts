@@ -41,7 +41,8 @@ export class PostService {
         {
           headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
           // params: new HttpParams().set('print', 'pretty')
-          params: searchParams
+          params: searchParams,
+          responseType: 'json'
         }
       )
       .pipe(
@@ -65,7 +66,8 @@ export class PostService {
 			return this.http.delete(
         'https://ng-complete-guide-b62e2-default-rtdb.europe-west1.firebasedatabase.app/posts.json',
         {
-          observe: 'events'
+          observe: 'events',
+          responseType: 'text'
         })
         .pipe(
           tap(event => {
